@@ -1,4 +1,5 @@
 import importlib
+import sys
 def execute(string : str) :
   def load_module(x : str, y1 : list = list()) :
     y = x.split(".")
@@ -9,7 +10,9 @@ def execute(string : str) :
       return (module, y1)
     except ModuleNotFoundError:
       return load_module(z0, [z1] + y1)
-  module, last = load_module(x)
+    except ValueError:
+      sys.exit("Cannot resolve any module from {}".format(string))
+  module, last = load_module(string)
   for each in last:
     module = getattr(module, each)
   return module
