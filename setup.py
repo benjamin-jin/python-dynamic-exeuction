@@ -7,6 +7,6 @@ setup(name='dymanic_load',
       author_email='jinrudals135@naver.com',
       description='Load module, function from string',
       packages=find_packages(exclude=['']),
-      long_description=open('README.md').read(),
+      long_description=open('REAMD.rst').read(),
       install_requires=[''],
 )
