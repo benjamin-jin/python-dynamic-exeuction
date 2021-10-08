@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-setup(name='dymanic_load',
+setup(name='dynamic_load',
       version='0.0.1',
       url='https://github.com/benjamin-jin/python-dynamic-exeuction',
       author='Benjamin Jin',
