@@ -1,5 +1,14 @@
 import importlib
 import sys
+import inspect, traceback
+import types
+
+class CannotResolve(Exception):
+  def __init__(self, inputname : str):
+    self.msg = "Cannot resolve any module from {}".format(inputname)
+  def __str__(self):
+    return self.msg
+
 def dynamic_load(string : str) :
   def load_module(target : str, remained : list = list()) :
     try:
@@ -8,8 +17,15 @@ def dynamic_load(string : str) :
     except ModuleNotFoundError:
       return load_module(target=".".join(target.split(".")[:-1]), remained=[target.split(".")[-1]] + remained)
     except ValueError:
-      sys.exit("Cannot resolve any module from {}".format(string))
+      raise CannotResolve(string) from None
   module, last = load_module(string)
   for each in last:
     module = getattr(module, each)
   return module
+
+def safe_dynamic_load(string : str):
+  try:
+    return dynamic_load(string)
+  except CannotResolve:
+    return None
+
