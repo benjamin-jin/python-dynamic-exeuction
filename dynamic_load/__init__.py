@@ -1,2 +1,3 @@
 from .dynamic_load import *
-__version__ = '0.0.1'
+from .dynamic_execute import *
+__version__ = '0.0.2'

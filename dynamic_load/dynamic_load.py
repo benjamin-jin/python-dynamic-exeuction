@@ -28,4 +28,3 @@ def safe_dynamic_load(string : str):
     return dynamic_load(string)
   except CannotResolve:
     return None
-
