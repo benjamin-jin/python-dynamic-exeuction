@@ -1,4 +1,5 @@
 from .dynamic_load import *
+from .tail_recursive import *
 
 def dynamic_execute(function : str, *args, **kwargs):
   func = dynamic_load(function)

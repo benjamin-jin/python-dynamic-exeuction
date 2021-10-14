@@ -1,8 +1,6 @@
 import importlib
-import sys
-import inspect, traceback
-import types
 
+from .tail_recursive import *
 class CannotResolve(Exception):
   def __init__(self, inputname : str):
     self.msg = "Cannot resolve any module from {}".format(inputname)
@@ -10,6 +8,7 @@ class CannotResolve(Exception):
     return self.msg
 
 def dynamic_load(string : str) :
+  @tail_call_optimized
   def load_module(target : str, remained : list = list()) :
     try:
       module = importlib.import_module(target)
