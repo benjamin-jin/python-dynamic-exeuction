@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(name='dynamic_load',
-      version='0.0.3',
+      version='0.0.4',
       url='https://github.com/benjamin-jin/python-dynamic-exeuction',
       author='Benjamin Jin',
       author_email='jinrudals135@naver.com',
